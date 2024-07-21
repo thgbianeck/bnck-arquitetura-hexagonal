@@ -1,7 +1,6 @@
 package application_test
 
 import (
-	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/require"
 	"github.com/thgbianeck/bnck-arquitetura-hexagonal/application"
 	"testing"
@@ -36,8 +35,7 @@ func TestProduct_Disable(t *testing.T) {
 }
 
 func TestProduct_IsValid(t *testing.T) {
-	product := application.Product{}
-	product.ID = uuid.NewV4().String()
+	product := application.NewProduct()
 	product.Name = "hello"
 	product.Status = application.DISABLED
 	product.Price = 10
